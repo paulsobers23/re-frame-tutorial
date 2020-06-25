@@ -1,5 +1,6 @@
-(ns app.db)
-
+(ns app.db
+  (:require [re-frame.core :as rf]))
+;; mocking how a data would look at an endpoint
 (def initial-app-db {:auth {:uid nil}
                      :errors {}
                      :inboxes {:inbox-01 {:participants #{"mike@mailinator.com" "jade@mailinator.com"}
@@ -286,3 +287,8 @@
                                                     :inboxes {"mike@mailinator.com" {:id :inbox-02
                                                                                      :notifications 6
                                                                                      :updated-at 1538697210537}}}}})
+
+(rf/reg-event-db
+ :init-db
+ (fn [_ _ ]
+   initial-app-db))

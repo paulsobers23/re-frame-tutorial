@@ -11,9 +11,9 @@
                {:name "week" :limit 2629743 :in-second 604800}
                {:name "month" :limit 31556926 :in-second 2629743}
                {:name "year" :limit js/Number.MAX_VALUE :in-second 31556926}]
-        time (js/Date. timestamp)
+        time (js/Date. timestamp) ;; js date object
         diff (t/in-seconds (t/interval time (t/now)))]
-    (if (< diff 5)
+    (if (< diff 5) ;; if something has been changed within 5 seconds
       "just now"
       (let [unit (first (drop-while #(or (>= diff (:limit %))
                                          (not (:limit %)))
