@@ -1,9 +1,10 @@
 (ns app.nav.views.nav
-  (:require [app.nav.views.authenticated :refer [authenicated]]))
+  (:require [app.nav.views.authenticated :refer [authenicated]]
+             [app.nav.views.public :refer [public]]))
 
 (defn nav
   []
-  (let [user true]
+  (let [user false]
     (if user
       [authenicated]
-      "public")))
+      [public])))

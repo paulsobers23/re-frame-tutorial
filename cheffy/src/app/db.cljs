@@ -290,5 +290,6 @@
 
 (rf/reg-event-db
  :init-db
- (fn [_ _ ]
+ (fn [_ _]
    initial-app-db))
+
